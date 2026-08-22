@@ -26,7 +26,7 @@ export function Input({ prefix, suffix, ...rest }: InputProps) {
       {suffix && (
         <>
           <Divider orientation="vertical" />
-          <span className="text-muted-foreground ml-3 text-sm font-medium">
+          <span className="text-muted-foreground text-sm font-medium">
             {suffix}
           </span>
         </>

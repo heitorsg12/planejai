@@ -1,7 +1,8 @@
 import { Clock, Moon, Sun, TrendingUp, Wallet } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
-import { useTheme } from '../../hooks/useTheme'
+import { useTheme } from '@/hooks/useTheme'
+
 import { Button } from './Button'
 import { Divider } from './Divider'
 
@@ -12,6 +13,7 @@ export function Header() {
   return (
     <header className="border-b border-(--border) px-6 py-3">
       <nav className="flex items-center justify-between">
+        {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full">
             <Wallet size={20} className="text-primary-foreground" />
@@ -21,6 +23,8 @@ export function Header() {
             <span className="font-extrabold">.ai</span>
           </span>
         </div>
+
+        {/* Actions Buttons */}
         <div className="flex items-center gap-1">
           <Button
             variant="secondary"

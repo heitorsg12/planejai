@@ -24,10 +24,10 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={[baseClasses, variantClasses[variant], className].join(' ')}
       {...props}
+      className={[baseClasses, variantClasses[variant], className].join(' ')}
     >
-      {Icon && <Icon />}
+      {Icon && <Icon size={20} />}
       {children}
     </button>
   )

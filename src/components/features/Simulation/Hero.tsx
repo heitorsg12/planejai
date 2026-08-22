@@ -15,8 +15,7 @@ export function SimulationHero() {
         />
       </div>
       <p className="text-muted-foreground text-sm">
-        Responda algumas questões para ter insights financeiros
-        personalizados.
+        Responda algumas questões para ter insights financeiros personalizados.
       </p>
     </div>
   )

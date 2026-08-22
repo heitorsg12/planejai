@@ -33,31 +33,34 @@ export function buildAIPrompt(simulation: SimulationRecord) {
   const monthlySavingsNeeded =
     parseCurrency(goalAmount) / parseInt(goalDeadline)
 
-  return `Você é um educador financeiro especializado em finanças pessoais. Analise os dados abaixo e gere um diagnóstico financeiro personalizado com linguagem clara, didática e encorajadora, voltado para pessoas sem conhecimento financeiro. O diagnóstico será exibido diretamente ao usuário no app, fale sempre em segunda pessoa ("você tem...", "sua meta...").
+  return `Você é um educador financeiro especializado em finanças pessoais. 
+    Analise os dados abaixo e gere um diagnóstico financeiro personalizado com linguagem clara, didática e encorajadora, 
+    voltado para pessoas sem conhecimento financeiro. O diagnóstico será exibido diretamente ao usuário no app, 
+    fale sempre em segunda pessoa ("você tem...", "sua meta...").
 
-Dados da simulação:
-- Renda mensal bruta: ${income}
-- Custos fixos essenciais: ${expenses}
-- Dívidas e parcelas mensais: ${debts}
-- Valor disponível por mês: ${monthlySavings} reais
-- Meta: ${goalName}
-- Custo da meta: ${goalAmount}
-- Prazo desejado: ${goalDeadline} meses
-- Economia mensal necessária para atingir a meta no prazo: ${monthlySavingsNeeded} reais
-- Saldo após reserva para a meta: ${monthlySavings - monthlySavingsNeeded} reais
+    Dados da simulação:
+    - Renda mensal bruta: ${income}
+    - Custos fixos essenciais: ${expenses}
+    - Dívidas e parcelas mensais: ${debts}
+    - Valor disponível por mês: ${monthlySavings} reais
+    - Meta: ${goalName}
+    - Custo da meta: ${goalAmount}
+    - Prazo desejado: ${goalDeadline} meses
+    - Economia mensal necessária para atingir a meta no prazo: ${monthlySavingsNeeded} reais
+    - Saldo após reserva para a meta: ${monthlySavings - monthlySavingsNeeded} reais
 
-Retorne APENAS um JSON válido, sem texto adicional, sem blocos de código, neste formato exato:
+    Retorne APENAS um JSON válido, sem texto adicional, sem blocos de código, neste formato exato:
 
-${RESPONSE_SCHEMA}
+    ${RESPONSE_SCHEMA}
 
-Regras:
-- Todos os textos em português do Brasil
-- Máximo de 4 itens por lista
-- Seja específico ao citar valores calculados
-- Não repita informações entre seções
-- Nunca use markdown dentro dos valores do JSON
-- Para o campo "feasibility.status", use os seguintes critérios:
-  - "viable": saldo após reserva para a meta é maior ou igual a 0
-  - "needs_adjustment": saldo negativo de até 20% do valor da economia mensal necessária
-  - "unfeasible": saldo negativo superior a 20% do valor da economia mensal necessária`
+    Regras:
+    - Todos os textos em português do Brasil
+    - Máximo de 4 itens por lista
+    - Seja específico ao citar valores calculados
+    - Não repita informações entre seções
+    - Nunca use markdown dentro dos valores do JSON
+    - Para o campo "feasibility.status", use os seguintes critérios:
+      - "viable": saldo após reserva para a meta é maior ou igual a 0
+      - "needs_adjustment": saldo negativo de até 20% do valor da economia mensal necessária
+      - "unfeasible": saldo negativo superior a 20% do valor da economia mensal necessária`
 }

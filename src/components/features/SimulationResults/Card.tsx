@@ -53,9 +53,7 @@ export function Card({
       <p className={['text-3xl font-semibold', styles.value].join(' ')}>
         {value}
       </p>
-      <p className={['mt-1 text-sm', styles.subtitle].join(' ')}>
-        {subtitle}
-      </p>
+      <p className={['mt-1 text-sm', styles.subtitle].join(' ')}>{subtitle}</p>
     </div>
   )
 }
