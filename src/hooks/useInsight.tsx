@@ -46,8 +46,12 @@ export const useInsight = (id: string) => {
           ...simulation,
           insight: data,
         } as SimulationRecord)
-      } catch {
-        setError('Erro ao gerar o diagnóstico. Tente novamente.')
+      } catch (error) {
+        setError(
+          error instanceof Error
+            ? error.message
+            : 'Erro ao gerar o diagnóstico. Tente novamente.',
+        )
       } finally {
         isRequestPending.current = false
         setIsLoading(false)
